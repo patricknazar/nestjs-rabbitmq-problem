@@ -1,0 +1,26 @@
+version: "3"
+services:
+
+  rabbitmq:
+    image: rabbitmq:3
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
+
+  graphql:
+    image: node:8
+    command: bash -c "yarn && yarn start:dev"
+    ports:
+      - 0.0.0.0:3000:3000
+    volumes:
+      - ./graphql-gateway:/app
+    working_dir: /app
+
+  microservice:
+    image: node:8
+    command: bash -c "yarn && yarn start:dev"
+    volumes:
+      - ./microservice:/app
+    working_dir: /app
+
+volumes:
+  rabbitmq:
