@@ -9,7 +9,7 @@ export class UserResolver {
   async users() {
     const pattern = { cmd: 'getUsers' };
     const payload = {};
-    return await this.client.send<number>(pattern, payload);
+    return await this.client.send<any[]>(pattern, payload);
   }
 
   constructor(@Inject('CLIENT_PROXY') private client: ClientProxy) { }
