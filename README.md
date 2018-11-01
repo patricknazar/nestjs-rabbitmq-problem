@@ -2,7 +2,7 @@
 
 https://github.com/nestjs/nest/issues/1245
 
-Can't currently reproduce the problem.
+Occurs when there are more than one microservices (other than gateway)
 
 ## Requirements
 * Docker/docker-compose
@@ -20,4 +20,4 @@ Can't currently reproduce the problem.
       }
     }
 ```
-3. Run it several times, although there is no problem reproduced atm.
+3. Run it several times, one will succeed, the next will fail. This pattern will repeat.
